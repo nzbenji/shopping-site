@@ -1,8 +1,8 @@
 import React from 'react';
-import Nav from './Nav';
-import './App.css';
-import ItemPage from './ItemPage';
-import { items } from './Dummy-Data.js';
+import Nav from './components/Nav';
+import './css/App.css';
+import ItemPage from './components/ItemPage';
+import { items } from './components/Dummy-Data.js';
 
 class App extends React.Component {
   state = {
