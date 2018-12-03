@@ -1,6 +1,8 @@
 import React from 'react';
 import Nav from './Nav';
 import './App.css';
+import ItemPage from './ItemPage';
+import { items } from './Dummy-Data.js';
 
 class App extends React.Component {
   state = {
@@ -8,7 +10,7 @@ class App extends React.Component {
   };
 
   //Choose wether to render ItemPage or CartPage
-  tabChange = index => {
+  changeTab = index => {
     this.setState({
       activeTab: index
     })
@@ -19,7 +21,7 @@ class App extends React.Component {
     switch(this.state.activeTab) {
       default:
       case 0: return (
-        <span>Items</span>
+        <ItemPage items={ items } />
       )
       case 1: return (
         <span>Cart</span>
@@ -28,11 +30,9 @@ class App extends React.Component {
   }
 
   render() {
-    //destructor state object
-   // let { activeTab } = this.state
     return (
       <div className="App">
-        <Nav activeTab= { this.state.activeTab } tabChange={this.tabChange}/>
+        <Nav activeTab = { this.state.activeTab } changeTab = { this.changeTab }/>
         <main className="App__content">
           {this.renderContent()}
         </main>
