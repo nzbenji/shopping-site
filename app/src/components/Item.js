@@ -7,7 +7,7 @@ const Item = ( { item, addToCart }) => (
         <div className="item__left">
         <div className="item__image"/>
         <div className="item__title">
-            {Item.name}
+            {item.name}
         </div>
         <div className="item__description">
             {item.description}
