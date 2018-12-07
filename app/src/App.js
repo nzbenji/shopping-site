@@ -25,19 +25,33 @@ class App extends React.Component {
     })
   }
 
+  handleRemoveItem = item => {
+    let index = this.state.cart.indexOf(item.id)
+
+    this.setState({ 
+      /* To avoid mutating state, we're using the spread op twice,
+      firsty, we're taking the first half of the array, not including
+      item we want to remove, and right half of array (everything after
+      item we're removing)
+      */
+      cart: [
+        ...this.state.cart.slice(0, index),
+        ...this.state.cart.slice(index + 1)
+      ]
+    })
+  }
+
   renderContent() {
     //Switch between item and cart tabs
-    switch(this.state.activeTab) {
-      default:
-      case 0: 
+    if(this.state.activeTab === 0) {
       return (
         <ItemPage 
-        items={ items } 
-        addToCart= { this.handleAddToCart }
+          items={ items } 
+          addToCart= { this.handleAddToCart }
         />
       )
-      case 1: 
-        return this.renderCart() 
+    } else {
+      return this.renderCart()
     }
   }
 
@@ -53,7 +67,8 @@ class App extends React.Component {
             */
   
   //create an array of items
-  //Object.keys allows us to iterate over the keys of an object
+  //Object.keys allows us to iterate over the keys of an object by creating an 
+  //array that contains the key properties of the object.
   let cartItems = Object.keys(itemCount).map(itemId => {
     //find item by ID
     let item = items.find(item => 
@@ -68,7 +83,11 @@ class App extends React.Component {
   });
 
   return (
-    <CartPage items={cartItems} />
+    <CartPage 
+      items={cartItems} 
+      addItem={ this.handleAddToCart }
+      removeItem={ this.handleRemoveItem }
+    />
   )
   }
 

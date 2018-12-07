@@ -9,7 +9,13 @@ function ItemPage( { items, addToCart }) {
             {items.map(item => 
                 <li key={item.id} className="item__page-item">
                 { /* Rendering the Item component inside of items name.  */}
-                <Item item={item} addToCart= { () => addToCart(item) }/>
+                <Item item={item}>
+                <button className="item__addToCart"
+                    onClick= { () => addToCart(item) }>
+                    Add to cart
+                </button>
+                
+                </Item>
                 </li>
                 )}
         </ul>
