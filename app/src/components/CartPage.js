@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import CartListTable from './CartListTable'
-import {navigate, updateQuantities, confirmOrder, getCart} from '../../actions'
+import {navigate, updateQuantities, confirmOrder, getCart} from '../actions'
 
 class CartListBody extends React.Component {
 

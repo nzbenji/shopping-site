@@ -9,8 +9,17 @@ function getCart () {
   return cart
 }
 
+function addToCart (beer) {
+  const targetIndex = cart.findIndex(elem => elem.id === beer.id)
+  if (targetIndex !== -1) {
+    cart[targetIndex].quantity++
+  } else {
+    cart.push({...beer, quantity: 1})
+  }
+}
 
 module.exports = {
   getBeers,
-  getCart
+  getCart,
+  addToCart
 }

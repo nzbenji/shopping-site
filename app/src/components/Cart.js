@@ -1,5 +1,5 @@
 import React from 'react'
-import CartPage from './CartListBody'
+import CartPage from './CartPage'
 import {connect} from 'react-redux'
 
 class Cart extends React.Component {
