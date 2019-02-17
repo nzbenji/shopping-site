@@ -3,7 +3,7 @@ import Nav from './components/Nav';
 import './css/App.css';
 import ItemPage from './components/ItemPage';
 import { items } from './components/Dummy-Data.js';
-import CartPage from './components/CartPage.js';
+import Cart from './components/CartPage.js';
 
 class App extends React.Component {
   state = {
@@ -83,7 +83,7 @@ class App extends React.Component {
   });
 
   return (
-    <CartPage 
+    <Cart 
       items={cartItems} 
       addItem={ this.handleAddToCart }
       removeItem={ this.handleRemoveItem }
