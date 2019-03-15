@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "body-parser": "^1.18.3",
     "concurrently": "^4.1.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "knex": "^0.16.3",
     "libsodium-wrappers": "^0.7.4",
+    "mongoose": "^5.4.19",
+    "morgan": "^1.9.1",
     "nodemon": "^1.18.10",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
@@ -19,6 +22,7 @@
     "superagent": "^4.1.0"
   },
   "scripts": {
+    "start": "concurrently - kill-others \"yarn client\" \"yarn server\"",
     "client": "react-scripts start",
     "server": "nodemon server/server",
     "test": "react-scripts test",
