@@ -33,7 +33,7 @@ router.post('/signup', (req, res, next) => {
   }
   //prevent duplicate users
   User.findOne({ email }, (err, existingUser) => {
-    if(err) { return next(err) }
+    if(err) return next(err) 
 
     if(existingUser) {
       return res.status(422).send({ error: 'Email is in use'})
@@ -46,7 +46,7 @@ router.post('/signup', (req, res, next) => {
 
     //save record to DB
     user.save(err => {
-      if (err) { return next(err) }
+      if (err) return next(err)
       res.json(user)
     })
   })

@@ -10,6 +10,7 @@ const app = express()
 
 //DB setup
 mongoose.connect('mongodb://localhost:auth/auth', { useNewUrlParser: true })
+mongoose.set('useCreateIndex', true);
 
 //App setup
 app.use(morgan('combined'))
