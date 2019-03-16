@@ -2,8 +2,15 @@ const express = require('express')
 const db = require('./db')
 const router = express.Router()
 const User = require('./models/user')
+const jwt = require('jwt-simple')
 
+const config = require('./config')
 router.use(express.json())
+
+function tokenForUser(user) {
+  const timestamp = new Date().getTime
+  return jwt.encode({ sub: user.id, iat: timestamp }, config.secret)
+}
 
 router.get('/beers', (req, res) => { 
   setTimeout(() => {
@@ -43,12 +50,13 @@ router.post('/signup', (req, res, next) => {
       email,
       password
     })
-
+  
     //save record to DB
     user.save(err => {
       if (err) return next(err)
       res.json(user)
     })
+    res.json({ token: tokenForUser(user)})
   })
 })
 
