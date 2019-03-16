@@ -4,9 +4,12 @@ const path = require('path')
 const http = require('http')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
-
+const mongoose = require('mongoose')
 const router = require('./routes')
 const app = express()
+
+//DB setup
+mongoose.connect('mongodb://localhost:auth/auth', { useNewUrlParser: true })
 
 //App setup
 app.use(morgan('combined'))
