@@ -3,14 +3,22 @@ const db = require('./db')
 const router = express.Router()
 const User = require('./models/user')
 const jwt = require('jwt-simple')
+const passport = require('passport')
+const passportService = require('./services/passport')
 
 const config = require('./config')
 router.use(express.json())
+
+const requireAuth = passport.authenticate('jwt', { session: false }) //Prevent cookie based auth
 
 function tokenForUser(user) {
   const timestamp = new Date().getTime
   return jwt.encode({ sub: user.id, iat: timestamp }, config.secret)
 }
+
+router.get('/', requireAuth, (req, res) => {
+  res.send({working?: 'Yes'})
+})
 
 router.get('/beers', (req, res) => { 
   setTimeout(() => {
