@@ -1,5 +1,8 @@
 import request from 'superagent'
 
+//AUTHENTICATION
+
+
 export const actionCreatorName = () => {
   return {
     type: 'ACTION_TYPE'
