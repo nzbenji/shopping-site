@@ -7,6 +7,8 @@ export const signup = (formProps, callback) => async dispatch => {
     const response = await axios.post('http://localhost:8080/api/signup', formProps)
 
     dispatch({type: 'AUTH_USER', payload: response.data.token})
+    //Store our JWT in localstorage 
+    localStorage.setItem('token', response.data.token)
     callback()
   } catch(e) {
     dispatch({type: 'AUTH_ERROR', payload: 'Email in use'})
