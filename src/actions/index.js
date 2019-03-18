@@ -1,4 +1,43 @@
 import request from 'superagent'
+import axios from 'axios'
+
+//AUTHENTICATION
+export const signup = (formProps, callback) => async dispatch => {
+  try {
+    const response = await axios.post('http://localhost:8080/api/signup', formProps)
+
+    dispatch({type: 'AUTH_USER', payload: response.data.token})
+    //Store our JWT in localstorage 
+    localStorage.setItem('token', response.data.token)
+    callback()
+  } catch(e) {
+    dispatch({type: 'AUTH_ERROR', payload: 'Email in use'})
+  }
+}
+
+export const signin = (formProps, callback) => async dispatch => {
+  try {
+    const response = await axios.post('http://localhost:8080/api/signin', formProps)
+
+    dispatch({type: 'AUTH_USER', payload: response.data.token})
+    //Store our JWT in localstorage 
+    localStorage.setItem('token', response.data.token)
+    callback()
+  } catch(e) {
+    dispatch({type: 'AUTH_ERROR', payload: 'Incorrect login credentials'})
+  }
+}
+
+export const signout = () => {
+  localStorage.removeItem('token')
+
+  return {
+    type: 'AUTH_USER',
+    payload: '' //clear authenticated piece of state
+  }
+}
+
+//CART
 
 export const actionCreatorName = () => {
   return {
@@ -93,7 +132,6 @@ export const getCart = () => {
       .get('http://localhost:8080/api/cart')
       .then(res => {
         const cart = res.body
-        // console.log(res.body)
         dispatch(receiveCart(cart))
       })
   }
@@ -101,7 +139,6 @@ export const getCart = () => {
 
 export function saveBeerToCart (id, name) {
   return function (dispatch) {
-    // we're optimistic ;)
     dispatch(requestApi())
     dispatch(addToCart(id, name))
     request.post('http://localhost:8080/api/cart')
