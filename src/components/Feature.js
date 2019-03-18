@@ -1,5 +1,5 @@
 import React from 'react'
-import requireAuth from './requireAuth'
+import requireAuth from '../utils/requireAuth'
 
 class Feature extends React.Component {
     render() {

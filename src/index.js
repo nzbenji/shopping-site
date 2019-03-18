@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/index.css';
+
 import App from './App';
 import Welcome from './components/Welcome'
 import Signup from './components/auth/Signup'
 import Feature from './components/Feature'
+import Signout from './components/auth/Signout'
+import Signin from './components/auth/Signin'
+
 import reducers from './reducers'
 import {BrowserRouter, Route} from 'react-router-dom'
 
@@ -28,6 +32,8 @@ ReactDOM.render(
       <App>
         <Route path="/" exact component={Welcome} />
         <Route path="/signup" component={Signup} />
+        <Route path="/signout" component={Signout} />
+        <Route path="/signin" component={Signin} />
         <Route path="/feature" component={Feature} />
       </App>
     </BrowserRouter>

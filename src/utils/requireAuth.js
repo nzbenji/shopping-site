@@ -5,16 +5,16 @@ export default ChildComponent => {
   class ComposedComponent extends Component {
 
     componentDidMount() {
-      this.shouldNavigateAway();
+      this.shouldNavigateAway()
     }
   
     componentDidUpdate() {
-      this.shouldNavigateAway();
+      this.shouldNavigateAway()
     }
   
     shouldNavigateAway() {
       if (!this.props.auth) {
-        this.props.history.push('/');
+        this.props.history.push('/')
       }
     }
 
@@ -27,5 +27,5 @@ export default ChildComponent => {
     return { auth: state.auth.authenticated }
   }
 
-  return connect(mapStateToProps)(ComposedComponent);
+  return connect(mapStateToProps)(ComposedComponent)
 };

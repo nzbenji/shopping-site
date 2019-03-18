@@ -15,6 +15,30 @@ export const signup = (formProps, callback) => async dispatch => {
   }
 }
 
+export const signin = (formProps, callback) => async dispatch => {
+  try {
+    const response = await axios.post('http://localhost:8080/api/signin', formProps)
+
+    dispatch({type: 'AUTH_USER', payload: response.data.token})
+    //Store our JWT in localstorage 
+    localStorage.setItem('token', response.data.token)
+    callback()
+  } catch(e) {
+    dispatch({type: 'AUTH_ERROR', payload: 'Incorrect login credentials'})
+  }
+}
+
+export const signout = () => {
+  localStorage.removeItem('token')
+
+  return {
+    type: 'AUTH_USER',
+    payload: '' //clear authenticated piece of state
+  }
+}
+
+//CART
+
 export const actionCreatorName = () => {
   return {
     type: 'ACTION_TYPE'
