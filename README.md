@@ -1,5 +1,5 @@
 # Shopping site
-This full stack shopping site allows users to register, signin, add and remove items to their cart. This project is built with React and Semantic UI on the front end and Node / Express, MongoDB on the backend. 
+This full stack shopping site allows users to register, signin, add and remove items to their cart. This project is currently under developement and being built with React and Semantic UI on the front end and Node / Express, MongoDB on the backend. 
 
 ## Technologies:
 * React
