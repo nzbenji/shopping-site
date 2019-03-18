@@ -3,12 +3,15 @@ import Listing from './components/listing/Listing'
 import Cart from './components/Cart'
 import {connect} from 'react-redux'
 import OrderConfirm from './OrderConfirm'
+import Header from './components/Header'
 
-// This might need to be turned into a stateful (class-based) component
 class App extends React.Component {
   render () {
     return (
       <div className='app'>
+        <Header />
+        {this.props.children}
+
         {this.props.target === 'listing' && <Listing />}
         {this.props.target === 'cart' && <Cart />}
         {this.props.target === 'order' && <OrderConfirm />}
