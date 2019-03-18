@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './css/index.css';
 import App from './App';
 import Welcome from './components/Welcome'
-import Signup from './components/auth/signup'
+import Signup from './components/auth/Signup'
 import reducers from './reducers'
 import {BrowserRouter, Route} from 'react-router-dom'
 

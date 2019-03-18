@@ -1,7 +1,13 @@
 import request from 'superagent'
+import axios from 'axios'
 
 //AUTHENTICATION
-
+export const signup = formProps => dispatch => {
+  axios.post('http://localhost:8080/api/signup', formProps)
+  // request
+  //   .post('http://localhost:8080/api/signup')
+  //   .send(formProps)
+}
 
 export const actionCreatorName = () => {
   return {
@@ -96,7 +102,6 @@ export const getCart = () => {
       .get('http://localhost:8080/api/cart')
       .then(res => {
         const cart = res.body
-        // console.log(res.body)
         dispatch(receiveCart(cart))
       })
   }
@@ -104,7 +109,6 @@ export const getCart = () => {
 
 export function saveBeerToCart (id, name) {
   return function (dispatch) {
-    // we're optimistic ;)
     dispatch(requestApi())
     dispatch(addToCart(id, name))
     request.post('http://localhost:8080/api/cart')
