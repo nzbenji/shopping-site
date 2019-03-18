@@ -3,6 +3,22 @@ const User = require('../models/user')
 const config = require('../config')
 const JwtStrategy = require('passport-jwt').Strategy
 const ExtractJwt = require('passport-jwt').ExtractJwt
+const LocalStrategy = require('passport-local')
+
+//Find user in database and check if login details match with email and hashed password
+const localLogin = new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
+    User.findOne({email}, function(err, user) {
+        if(err) return done(err)
+        if(!user) return done(null, false)
+
+        user.comparePassword(password, function (err, matched) {
+            if(err) return done(err)
+            if(!matched) return done(null, false, {message: 'Incorrect email or password.'})
+
+            return done(null, user, {message: 'Logged In Successfully'})
+        })
+    })
+})
 
 const jwtOptions = {
     jwtFromRequest: ExtractJwt.fromHeader('authorization'),
@@ -21,3 +37,4 @@ const jwtLogin = new JwtStrategy(jwtOptions, (payload, done) => {
 })
 
 passport.use(jwtLogin)
+passport.use(localLogin)

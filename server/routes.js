@@ -10,6 +10,7 @@ const config = require('./config')
 router.use(express.json())
 
 const requireAuth = passport.authenticate('jwt', { session: false }) //Prevent cookie based auth
+const requireSignin = passport.authenticate('local', {session: false})
 
 function tokenForUser(user) {
   const timestamp = new Date().getTime
@@ -17,7 +18,7 @@ function tokenForUser(user) {
 }
 
 router.get('/', requireAuth, (req, res) => {
-  res.send({working?: 'Yes'})
+  res.send({working: 'Yes'})
 })
 
 router.get('/beers', (req, res) => { 
@@ -37,6 +38,11 @@ router.post('/cart', (req, res) => {
     db.addToCart(req.body)
     res.sendStatus(201)
   }, 2000)
+})
+
+
+router.post('/signin', requireSignin, (req, res, next) => {
+  res.send({token:tokenForUser(req.user)})
 })
 
 router.post('/signup', (req, res, next) => {
