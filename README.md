@@ -14,6 +14,12 @@ This full stack shopping site allows users to register, signin, add and remove i
 ### Setup
 
 ```
+Create a config.js in server directory and add a secret JWT key
+example: 
+module.exports = {
+    secret: 'dfsdfdjk44323kfls3212545887'
+}
+
  yarn 
  yarn start (Client & Server)
  
