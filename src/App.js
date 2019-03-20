@@ -11,7 +11,6 @@ class App extends React.Component {
       <div className='app'>
         <Header />
         {this.props.children}
-
         {this.props.target === 'listing' && <Listing />}
         {this.props.target === 'cart' && <Cart />}
         {this.props.target === 'order' && <OrderConfirm />}

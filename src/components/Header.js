@@ -24,7 +24,7 @@ class Header extends React.Component {
                     <Link to="/signout"><Button negative>Sign out</Button></Link>
                 </Menu.Item>
                 <Menu.Item>
-                    <Link to="/feature"><Button positive color="green">Feature</Button></Link>
+                    <Link to="/shop"><Button positive color="green">Shop</Button></Link>
                 </Menu.Item>
             </React.Fragment>
         )
@@ -51,48 +51,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(Header)
-
-
-
-
-// import React from 'react'
-// import {Link} from 'react-router-dom'
-// import {connect} from 'react-redux'
-
-// class Header extends React.Component {
-//     renderLinks() {
-//         if(this.props.authenticated) {
-//             return (
-//                 <div>
-//                     <Link to="/signout">Sign out</Link>
-//                     <Link to="/feature">Feature</Link>
-//                 </div>
-//             )
-//         } else {
-//             return (
-//                 <div>
-//                     <Link to="/signup">Sign up</Link>
-//                     <Link to="/signin">Sign in</Link>
-//                 </div>
-//             )
-            
-//         }
-//     }
-//     render() {
-//         return (
-//             <div>
-//                 <Link to="/">Redux Auth</Link>
-//                 {this.renderLinks()}
-                
-//             </div>
-//         )
-//     }
-// }
-
-// const mapStateToProps = state => {
-//     return {
-//         authenticated: state.auth.authenticated
-//     }
-// }
-
-// export default connect(mapStateToProps)(Header)
