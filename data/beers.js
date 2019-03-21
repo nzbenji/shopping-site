@@ -3,41 +3,23 @@ const data = {
     {
       id: 1,
       name: 'HBIB Ginger Fusion',
+      image: 'https://bigbarrel.co.nz/content/images/thumbs/0024286_hbib-gingerfusion-620ml-each.jpeg',
       brewery: 'Hawkes Bay Independent Brewery',
       country: 'New Zealand',
       style: 'Ginger Beer',
       abv: '5%'
-    }, {
-      id: 2,
-      name: 'Mangose & Melons',
-      brewery: 'Baylands Brewery',
-      country: 'New Zealand',
-      style: 'Fruit Gose',
-      abv: '4%'
-    }, {
-      id: 3,
-      name: 'North End Pilsner',
-      brewery: 'North End Brewing',
-      country: 'New Zealand',
-      style: 'Pilsner',
-      abv: '5%'
-    }, {
+    },{
       id: 4,
       name: 'Bach Brewing Kingtide IPA',
+      image: 'http://cdn.shopify.com/s/files/1/2024/1401/products/BACHKINGT500_grande.jpg?v=1504917777',
       brewery: 'Bach Brewing',
       country: 'New Zealand',
       style: 'IPA',
       abv: '7%'
-    }, {
-      id: 5,
-      name: 'Baylands Zythra APA',
-      brewery: 'Baylands Brewery',
-      country: 'New Zealand',
-      style: 'American Pale Ale',
-      abv: '6%'
-    }, {
+    },{
       id: 6,
       name: 'Kereru Moonless Stout',
+      image: 'https://cdn.beercellar.com/products/5000/5689_1500H.jpg',
       brewery: 'Kereru',
       country: 'New Zealand',
       style: 'Stout',
@@ -45,6 +27,7 @@ const data = {
     }, {
       id: 7,
       name: 'Zeffer Red Apple Cider',
+      image: 'https://www.glengarrywines.co.nz/images/v9/bottles/91360.png',
       brewery: 'Zeffer',
       country: 'New Zealand',
       style: 'Cider',
@@ -52,6 +35,7 @@ const data = {
     }, {
       id: 8,
       name: 'Round The Corner',
+      image: 'https://bigbarrel.co.nz/content/images/thumbs/0024286_hbib-gingerfusion-620ml-each.jpeg',
       brewery: 'Outlier Cartel',
       country: 'New Zealand',
       style: 'IPA',
@@ -59,6 +43,7 @@ const data = {
     }, {
       id: 9,
       name: 'Good George Drop Hop Cider',
+      image: 'https://bigbarrel.co.nz/content/images/thumbs/0024286_hbib-gingerfusion-620ml-each.jpeg',
       brewery: 'Good George',
       country: 'New Zealand',
       style: 'Hopped Cider',
