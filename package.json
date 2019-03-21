@@ -28,6 +28,7 @@
     "redux-thunk": "^2.3.0",
     "semantic-ui-react": "^0.86.0",
     "sqlite3": "^4.0.6",
+    "styled-components": "^4.1.3",
     "superagent": "^4.1.0"
   },
   "scripts": {
