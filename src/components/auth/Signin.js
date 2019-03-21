@@ -8,7 +8,7 @@ class Signin extends React.Component {
 
     onSubmit = (formProps) => {
         this.props.signin(formProps, () => {
-            this.props.history.push('/feature')
+            this.props.history.push('/shop')
         })
     }
 

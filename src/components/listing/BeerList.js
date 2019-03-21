@@ -4,6 +4,8 @@ import {connect} from 'react-redux'
 import {getBeers} from '../../actions'
 import { Loader } from 'semantic-ui-react'
 
+
+
 class BeerList extends React.Component {
   componentDidMount () {
     this.props.dispatch(getBeers())
@@ -11,7 +13,7 @@ class BeerList extends React.Component {
   render () {
     return (
       <div>
-        <div>
+        <div style={{margin: 0}}>
           {this.props.beers.length === 0 ? <Loader active inline='centered' /> : <span></span>}
         </div>
         {this.props.beers.map(beer => {

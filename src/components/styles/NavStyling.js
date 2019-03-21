@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const NavStyles = styled.ul`
   margin: 0;
+  margin-top: 20px;
   margin-bottom: 50px;
   margin-left: 65rem;
   padding: 0;
