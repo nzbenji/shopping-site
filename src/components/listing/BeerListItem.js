@@ -45,12 +45,11 @@ const StyledLink = styled(Link)`
 class BeerListItem extends React.Component {
 
     handleAdd = () => {
-        this.props.dispatch(saveBeerToCart(this.props.beer.id, this.props.beer.name))
+        this.props.dispatch(saveBeerToCart(this.props.beer.id, this.props.beer.name, this.props.beer.price))
         this.props.dispatch(navigate('cart'))
     }
 
     render() {
-        console.log(this.props.beer)
         const { name, brewery, country, style, abv, image } = this.props.beer
         return (
             <Container>

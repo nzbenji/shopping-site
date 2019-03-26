@@ -3,15 +3,7 @@ import {connect} from 'react-redux'
 import {removeFromCart} from '../actions'
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
-
-const Button = styled.button`
-    background: none;
-    color: inherit;
-    border: none;
-    outline: inherit;
-    cursor: pointer;
-`;
+import { faTimes, faMinus, faPlus, faHeart } from "@fortawesome/free-solid-svg-icons";
 
 const QtyButtons = styled.button`
     width: 30px;
@@ -33,12 +25,30 @@ const Quantity = styled.span`
     font-weight: 300;
 `
 
+const Buttons = styled.button`
+    display: inline-block;
+    Cursor: pointer;
+    margin-right: 10px;
+    background: none;
+    border: none;
+    outline: inherit;
+`
 
+const Name = styled.span`
+    height: 60px;
+    border-bottom: 1px solid #E1E8EE;
+    padding: 20px 30px;
+    color: #5E6977;
+    font-size: 18px;
+    font-weight: 400;
+`
 
 class CartListItem extends React.Component {
 
     state = {
-        quantity: this.props.beer.quantity
+        quantity: this.props.beer.quantity,
+        price: this.props.beer.price,
+        BtnColorChange: "#e74c3c"
     }
 
     handleDelete = () => {
@@ -54,25 +64,53 @@ class CartListItem extends React.Component {
 
     handleIncrease = () => {
         this.setState({
-            quantity: this.state.quantity + 1
+            quantity: this.state.quantity + 1, 
+            price: this.state.price * 2
         })
     }
     handleDecrease = () => {
-        if(this.state.quantity > 0)
+        const {quantity} = this.state
+        if(quantity > 0)
         this.setState({
-            quantity: this.state.quantity - 1
+            quantity: quantity - 1,
+            price: this.state.price / 2
         })
     }
 
     render() {
-        console.log(this.state.quantity)
+        console.log(this.props)
+        console.log(this.state)
         return (
             <div>
-                <span>{this.props.beer.name}</span>
-                <QtyButtons onClick={this.handleDecrease}><FontAwesomeIcon icon={faMinus} /></QtyButtons>
-                <Quantity onChange={this.handleChange} style={{fontSize: '20px'}}>{this.state.quantity}</Quantity>
-                <QtyButtons onClick={this.handleIncrease}><FontAwesomeIcon icon={faPlus} /></QtyButtons>
-                <td><Button onClick={this.handleDelete}><FontAwesomeIcon icon={faTimes} size="2x" /></Button></td>
+                <Buttons  
+                    onClick={this.handleDelete}>
+                    <FontAwesomeIcon icon={faTimes} size="2x" />
+                </Buttons>
+
+                <Buttons 
+                    style={{color: "#2ecc71"}}
+                    onClick={this.handleDelete}>
+                    <FontAwesomeIcon icon={faHeart} size="2x" />
+                </Buttons>
+
+                <Name>{this.props.beer.name}</Name>
+                <QtyButtons 
+                    onClick={this.handleDecrease}>
+                    <FontAwesomeIcon icon={faMinus} />
+                </QtyButtons>
+
+                <Quantity 
+                    onChange={this.handleChange} style={{fontSize: '20px'}}>
+                    {this.state.quantity}
+                </Quantity>
+
+                <QtyButtons 
+                    onClick={this.handleIncrease}>
+                    <FontAwesomeIcon icon={faPlus} />
+                </QtyButtons>
+                <div>
+                   {this.state.quantity !== 0 ? `$ ${this.state.price}` : '$0.00' }
+                </div>
             </div>
         )
     }
