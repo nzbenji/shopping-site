@@ -12,10 +12,6 @@ class CartListBody extends React.Component {
       }
   }
 
-  componentDidMount () {
-      console.log('mount')
-  }
-
   continueShopping = () => {
       this.props.dispatch(navigate('listing'))
   }
@@ -39,7 +35,6 @@ class CartListBody extends React.Component {
   }
 
   render () {
-      console.log('render')
     return (
       <div>
         <CartListTable handleQuantityChange={this.handleQuantityChange}/>

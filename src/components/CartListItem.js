@@ -14,12 +14,23 @@ const Button = styled.button`
 `;
 
 const QtyButtons = styled.button`
-    background: none;
-    color: inherit;
+    width: 30px;
+    height: 30px;
+    background-color: #E1E8EE;
+    border-radius: 6px;
     border: none;
-    outline: inherit;
     cursor: pointer;
-    margin: 15px;
+    margin: 10px;
+`
+
+const Quantity = styled.span`
+    -webkit-appearance: none;
+    border: none;
+    text-align: center;
+    width: 32px;
+    font-size: 16px;
+    color: #43484D;
+    font-weight: 300;
 `
 
 
@@ -41,16 +52,28 @@ class CartListItem extends React.Component {
         this.props.handleQuantityChange(this.props.beer.id, event.target.value)
     }
 
+    handleIncrease = () => {
+        this.setState({
+            quantity: this.state.quantity + 1
+        })
+    }
+    handleDecrease = () => {
+        if(this.state.quantity > 0)
+        this.setState({
+            quantity: this.state.quantity - 1
+        })
+    }
+
     render() {
+        console.log(this.state.quantity)
         return (
-            <tr>
-                <td>{this.props.beer.name}</td>
-                <td></td>
-                <QtyButtons><FontAwesomeIcon icon={faMinus} size="2x" /></QtyButtons>
-                <span onChange={this.handleChange} style={{fontSize: '20px'}}>{this.state.quantity}</span>
-                <QtyButtons><FontAwesomeIcon icon={faPlus} size="2x" /></QtyButtons>
+            <div>
+                <span>{this.props.beer.name}</span>
+                <QtyButtons onClick={this.handleDecrease}><FontAwesomeIcon icon={faMinus} /></QtyButtons>
+                <Quantity onChange={this.handleChange} style={{fontSize: '20px'}}>{this.state.quantity}</Quantity>
+                <QtyButtons onClick={this.handleIncrease}><FontAwesomeIcon icon={faPlus} /></QtyButtons>
                 <td><Button onClick={this.handleDelete}><FontAwesomeIcon icon={faTimes} size="2x" /></Button></td>
-            </tr>
+            </div>
         )
     }
 }
