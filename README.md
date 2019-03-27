@@ -6,6 +6,7 @@ This full stack shopping site allows users to register, signin, add and remove i
 * React Router
 * React-redux
 * Semantic UI
+* React styled components
 * Express 
 * Passport passport-JWT
 * MongoDB
@@ -39,7 +40,7 @@ module.exports = {
 - [ ] Add unit testing and mocking to authentication
 - [ ] Improve API add images to item list
 - [ ] Store items that have been added to cart in redux state
-- [ ] Styling for Menu header
+- [x] Styling for Menu header
 - [ ] Styling for Login and Register pages
-- [ ] Styling for List of products
-- [ ] Styling for Checkout page
+- [x] Styling for List of products
+- [x] Styling for Checkout page
