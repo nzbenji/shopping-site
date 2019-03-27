@@ -3,7 +3,8 @@ import {reduxForm, Field} from 'redux-form'
 import {compose} from 'redux'
 import {connect} from 'react-redux'
 import * as actions from '../../actions'
-import {InputField, SigninBtn, Footer, Wrapper} from '../styles/AuthStyling'
+import {SigninBtn, Footer, Wrapper} from '../styles/AuthStyling'
+import '../styles/inputStyling.css'
 
 class Signin extends React.Component {
 
@@ -18,14 +19,16 @@ class Signin extends React.Component {
         return (
             <div>
                 <Wrapper onSubmit={handleSubmit(this.onSubmit)} type="submit">
-                        <InputField 
+                        <Field 
+                            className="input__styling"
                             name="email"
                             type="text"
                             component="input"
                             autoComplete="none"
                             placeholder="email"
                         />
-                        <InputField 
+                        <Field 
+                            className="input__styling"
                             name="password"
                             type="password"
                             component="input"

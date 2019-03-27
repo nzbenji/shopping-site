@@ -3,6 +3,8 @@ import {reduxForm, Field} from 'redux-form'
 import {compose} from 'redux'
 import {connect} from 'react-redux'
 import * as actions from '../../actions'
+import {SigninBtn as RegisterBtn, Wrapper} from '../styles/AuthStyling'
+import '../styles/inputStyling.css'
 
 class Signup extends React.Component {
 
@@ -15,30 +17,28 @@ class Signup extends React.Component {
     render() {
         const {handleSubmit} = this.props //provided by redux-form
         return (
-            <form onSubmit={handleSubmit(this.onSubmit)}>
-                <fieldset>
-                    <label>Email</label>
+            <Wrapper onSubmit={handleSubmit(this.onSubmit)} type="submit">
                     <Field 
+                        className="input__styling"
                         name="email"
                         type="text"
                         component="input"
                         autoComplete="none"
+                        placeholder="email"
                     />
-                </fieldset>
-                <fieldset>
-                    <label>Password</label>
                     <Field 
+                        className="input__styling"
                         name="password"
                         type="password"
                         component="input"
                         autoComplete="none"
+                        placeholder="password"
                     />
-                </fieldset>
                 <div>
                     {this.props.errorMessage}
                 </div>
-                <button>Sign Up</button>
-            </form>
+                <RegisterBtn>Sign Up</RegisterBtn>
+            </Wrapper>
         )
     }
 }
