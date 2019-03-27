@@ -8,12 +8,13 @@ import Header from './components/Header'
 class App extends React.Component {
   render () {
     return (
-      <div className='app'>
+      <div>
         <Header />
         {this.props.children}
+
         {this.props.target === 'listing' && <Listing />}
         {this.props.target === 'cart' && <Cart />}
-        {this.props.target === 'order' && <OrderConfirm />}
+        {this.props.target === 'order'}
       </div>
     )
   }

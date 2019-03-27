@@ -26,7 +26,8 @@ function addBeerToCart (state, action) {
   return [...state, {
     id: action.id,
     name: action.name,
-    quantity: 1
+    quantity: 1,
+    price: action.price
   }]
 }
 

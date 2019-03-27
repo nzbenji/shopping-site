@@ -7,6 +7,7 @@ const data = {
       brewery: 'Hawkes Bay Independent Brewery',
       country: 'New Zealand',
       style: 'Ginger Beer',
+      price: '22.99',
       abv: '5%'
     },{
       id: 4,
@@ -15,6 +16,7 @@ const data = {
       brewery: 'Bach Brewing',
       country: 'New Zealand',
       style: 'IPA',
+      price: '22.99',
       abv: '7%'
     },{
       id: 6,
@@ -23,6 +25,7 @@ const data = {
       brewery: 'Kereru',
       country: 'New Zealand',
       style: 'Stout',
+      price: '22.99',
       abv: '4.3%'
     }, {
       id: 7,
@@ -31,6 +34,7 @@ const data = {
       brewery: 'Zeffer',
       country: 'New Zealand',
       style: 'Cider',
+      price: '21.99',
       abv: '5.4%'
     }, {
       id: 8,
@@ -39,6 +43,7 @@ const data = {
       brewery: 'Outlier Cartel',
       country: 'New Zealand',
       style: 'IPA',
+      price: '21.99',
       abv: '7.1%'
     }, {
       id: 9,
@@ -47,6 +52,7 @@ const data = {
       brewery: 'Good George',
       country: 'New Zealand',
       style: 'Hopped Cider',
+      price: '21.99',
       abv: '5%'
     }, {
       id: 10,
@@ -54,6 +60,7 @@ const data = {
       brewery: 'Good George',
       country: 'New Zealand',
       style: 'Gose',
+      price: '22.99',
       abv: '4.5%'
     }, {
       id: 11,
@@ -61,6 +68,7 @@ const data = {
       brewery: 'Liberty Brewing Co',
       country: 'New Zealand',
       style: 'NZ IPA',
+      price: '21.99',
       abv: '7.2%'
     }, {
       id: 12,
@@ -68,6 +76,7 @@ const data = {
       brewery: 'Epic Brewing Company',
       country: 'New Zealand',
       style: 'Black I.P.A',
+      price: '21.99',
       abv: '6%'
     }, {
       id: 13,
@@ -75,6 +84,7 @@ const data = {
       brewery: 'Wild & Woolly',
       country: 'New Zealand',
       style: 'Berliner Weisse',
+      price: '21.99',
       abv: '2.5%'
     }, {
       id: 14,
@@ -82,6 +92,7 @@ const data = {
       brewery: 'Hawkes Bay Independent Brewery',
       country: 'New Zealand',
       style: 'Lager',
+      price: '21.99',
       abv: '4%'
     }
   ]

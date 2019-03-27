@@ -51,11 +51,12 @@ export const navigate = target => {
   }
 }
 
-export const addToCart = (id, name) => {
+export const addToCart = (id, name, price) => {
   return {
     type: 'ADD_TO_CART',
     id,
-    name
+    name,
+    price
   }
 }
 
@@ -136,12 +137,12 @@ export const getCart = () => {
   }
 }
 
-export function saveBeerToCart (id, name) {
+export function saveBeerToCart (id, name, price) {
   return function (dispatch) {
     dispatch(requestApi())
-    dispatch(addToCart(id, name))
+    dispatch(addToCart(id, name, price))
     request.post('http://localhost:8080/api/cart')
-      .send({id, name})
+      .send({id, name, price})
       .then(() => {
         dispatch(receiveApi())
       })
