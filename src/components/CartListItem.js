@@ -43,6 +43,14 @@ const Name = styled.span`
     font-weight: 400;
 `
 
+const Price = styled.span`
+    height: 40px;
+    padding: 20px 30px;
+    color: #5E6977;
+    font-size: 18px;
+    font-weight: 400;
+`
+
 class CartListItem extends React.Component {
 
     state = {
@@ -88,8 +96,7 @@ class CartListItem extends React.Component {
                 </Buttons>
 
                 <Buttons 
-                    style={{color: "#2ecc71"}}
-                    onClick={this.handleDelete}>
+                    style={{color: "#2ecc71"}}>
                     <FontAwesomeIcon icon={faHeart} size="2x" />
                 </Buttons>
 
@@ -108,9 +115,10 @@ class CartListItem extends React.Component {
                     onClick={this.handleIncrease}>
                     <FontAwesomeIcon icon={faPlus} />
                 </QtyButtons>
-                <div>
+                
+                <Price>
                    {this.state.quantity !== 0 ? `$ ${this.state.price}` : '$0.00' }
-                </div>
+                </Price>
             </div>
         )
     }

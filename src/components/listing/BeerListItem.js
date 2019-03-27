@@ -60,7 +60,7 @@ class BeerListItem extends React.Component {
                     <span>{country}</span>
                     <div>{`${abv} `} abv</div>
                 </p>
-                <StyledLink to="#" onClick={this.handleAdd}>
+                <StyledLink to="/cart" onClick={this.handleAdd}>
                     Add to cart
                 </StyledLink>
             </Container>

@@ -5,9 +5,6 @@ import CartListItem from './CartListItem'
 function CartListTable (props) {
   return (
     <div>
-          <span>Beer</span>
-          <span>Quantity</span>
-          <span>Remove</span>
         {props.beers.map(beer => {
           return <CartListItem beer={beer} key={beer.name} handleQuantityChange={props.handleQuantityChange}/>
         })}

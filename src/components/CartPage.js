@@ -2,6 +2,19 @@ import React from 'react'
 import {connect} from 'react-redux'
 import CartListTable from './CartListTable'
 import {navigate, updateQuantities, confirmOrder, getCart} from '../actions'
+import styled from 'styled-components';
+
+const Cart = styled.div`
+  width: 750px;
+  height: 600px;
+  margin: 80px auto;
+  background: #FFFFFF;
+  box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+  border-radius: 6px;
+
+  display: flex;
+  flex-direction: column;
+`
 
 class CartListBody extends React.Component {
 
@@ -37,13 +50,17 @@ class CartListBody extends React.Component {
   render () {
     return (
       <div>
-        <CartListTable handleQuantityChange={this.handleQuantityChange}/>
-                <p className="actions">
-                    <a href="#" onClick={this.continueShopping}>Continue shopping</a> {'   '}
-                    <button onClick={this.handleUpdateSubmit}>Update</button> {'   '}
-                    <button className="button-primary" onClick={this.confirmOrder}>Checkout</button>
-                </p>
+        <Cart>
+          <CartListTable handleQuantityChange={this.handleQuantityChange}/>
+                  
+        </Cart>
+        <div>
+            <a href="#" onClick={this.continueShopping}>Continue shopping</a> {'   '}
+            <button onClick={this.handleUpdateSubmit}>Update</button> {'   '}
+            <button className="button-primary" onClick={this.confirmOrder}>Checkout</button>
+        </div>
       </div>
+      
     )
   }
 }

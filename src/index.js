@@ -6,6 +6,8 @@ import Signup from './components/auth/Signup'
 // import Feature from './components/Feature'
 import Signout from './components/auth/Signout'
 import Signin from './components/auth/Signin'
+import Cart from './components/Cart'
+import Listing from './components/listing/Listing'
 
 import reducers from './reducers'
 import {BrowserRouter, Route} from 'react-router-dom'
@@ -31,7 +33,8 @@ ReactDOM.render(
         <Route exact path="/signup" component={Signup} />
         <Route path="/signout" component={Signout} />
         <Route path="/signin" component={Signin} />
-        {/* <Route path="/feature" component={Feature} /> */}
+        <Route exact path="/cart" />
+        <Route exact path="/order" />
       </App>
     </BrowserRouter>
   </Provider>,
