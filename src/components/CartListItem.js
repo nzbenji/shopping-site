@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {removeFromCart} from '../actions'
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes, faMinus, faPlus, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faTimes, faMinus, faPlus, faHeart } from "@fortawesome/free-solid-svg-icons"
 
 const QtyButtons = styled.button`
     width: 30px;
@@ -55,8 +55,7 @@ class CartListItem extends React.Component {
 
     state = {
         quantity: this.props.beer.quantity,
-        price: this.props.beer.price,
-        BtnColorChange: "#e74c3c"
+        price: this.props.beer.price
     }
 
     handleDelete = () => {
@@ -86,7 +85,7 @@ class CartListItem extends React.Component {
     }
 
     render() {
-        console.log(this.props)
+        console.log(this.props.beer.price)
         console.log(this.state)
         return (
             <div>
@@ -115,10 +114,11 @@ class CartListItem extends React.Component {
                     onClick={this.handleIncrease}>
                     <FontAwesomeIcon icon={faPlus} />
                 </QtyButtons>
-                
+
                 <Price>
                    {this.state.quantity !== 0 ? `$ ${this.state.price}` : '$0.00' }
                 </Price>
+                <div></div>
             </div>
         )
     }

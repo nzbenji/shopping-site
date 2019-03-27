@@ -18,6 +18,7 @@ const NavStyles = styled.ul`
     text-transform: uppercase;
     font-weight: 900;
     font-size: 1em;
+    color: #e67e22;
     background: none;
     border: 0;
     cursor: pointer;
@@ -28,7 +29,7 @@ const NavStyles = styled.ul`
     &:before {
       content: '';
       width: 2px;
-      background: #E1E1E1;
+      background: #2ecc71;
       height: 100%;
       left: 0;
       position: absolute;

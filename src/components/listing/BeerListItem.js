@@ -9,7 +9,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   text-align: center;
-  height: 520px;
+  height: 528px;
   width: 400px;
   margin: 30px;
   padding: 12px;
@@ -23,13 +23,13 @@ const Container = styled.div`
 const StyledLink = styled(Link)`
     display: block;
     text-decoration: none;
-    background: #2f5289;
+    background: #e67e22;
     color: #eeeeee;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 16px;
     text-align: center;
-    padding: 8px 40px;
+    padding: 12px 40px;
     border-radius: 4px;
     font-family: Arial, Helvetica, sans-serif;
     transition: .7s;

@@ -6,7 +6,11 @@ function CartListTable (props) {
   return (
     <div>
         {props.beers.map(beer => {
-          return <CartListItem beer={beer} key={beer.name} handleQuantityChange={props.handleQuantityChange}/>
+          return <CartListItem 
+            beer={beer} 
+            key={beer.name} 
+            handleQuantityChange={props.handleQuantityChange}
+            />
         })}
     </div>
   )
